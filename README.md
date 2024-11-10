@@ -50,7 +50,7 @@ The **Client-Side Cache-Based Search Engine** aims to solve the problem of slow 
 ## System Architecture
 The system is designed around a client-side caching and service worker model, eliminating the need for a database. Here’s a simplified architecture:
 
-:::mermaid
+```mermaid
 graph TD
     UI[User Interface] -->|Search Request| SearchEngine
     SearchEngine -->|Cache Hit?| Cache
@@ -63,7 +63,7 @@ graph TD
     ServiceWorker[Service Worker] --> OfflineSupport
     Notes[Notes Storage] --> Cache
     Notes --> ServiceWorker
-:::
+```
 
 ---
 
