@@ -5,7 +5,7 @@ require 'session_manager.php';
 function getDirectories($baseDir = __DIR__)
 {
     return array_filter(glob("$baseDir/*"), function ($path) {
-        return is_dir($path) && !in_array(basename($path), ['assets', 'templates']);
+        return is_dir($path) && !in_array(basename($path), ['assets', 'templates', 'dfd', 'parsedown-master']);
     });
 }
 
@@ -78,9 +78,9 @@ if ($selectedDirectory && in_array($selectedDirectory, $directoryNames)) {
                         id="fileType"
                         class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
                         required>
-                        <option value="txt">.txt</option>
-                        <option value="html">.html</option>
-                        <option value="md">.md</option>
+                        <option value="txt">Text (.txt)</option>
+                        <option value="html">HTML (.html)</option>
+                        <option value="md">Markdown (.md)</option>
                     </select>
                 </div>
                 <!-- Note Content -->
