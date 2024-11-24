@@ -1,0 +1,21 @@
+DB Setup using aiven.io
+
+<?php
+define('DB_HOST', 'db host name');
+define('DB_PORT', 'db port'); 
+define('DB_NAME', 'defaultdb');
+define('DB_USER', 'avnadmin');
+define('DB_PASS', 'db pass');
+define('DB_CA_CERT', __DIR__ . '/ca.pem');
+
+try {
+    $dsn = "mysql:host=" . DB_HOST . ";port=" . DB_PORT . ";dbname=" . DB_NAME;
+    $options = [
+        PDO::MYSQL_ATTR_SSL_CA => DB_CA_CERT,
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ];
+    $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+    echo "Connected to the database successfully!";
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
