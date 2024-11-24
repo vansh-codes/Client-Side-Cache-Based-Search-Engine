@@ -3,3 +3,5 @@ config.php
 assets/js/searchHandlercopy.js
 assets/js/searchHandlercopy2.js
 search-bk.php
+cache_handler.php.bac
+mdtest.php

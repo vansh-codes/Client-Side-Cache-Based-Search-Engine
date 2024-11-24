@@ -63,23 +63,25 @@ $directories = sortItems($directories, $sortType);
         <h1 class="text-3xl font-bold text-center mb-8">Manage Notes</h1>
 
         <!-- Sorting Dropdown -->
-        <div class="flex justify-end mb-4 space-x-4">
-            <form action="" method="GET" class="flex items-center">
+        <div class="flex flex-col md:flex-row justify-end mb-4 md:space-x-4 space-y-4 md:space-y-0">
+            <form action="" method="GET" class="flex items-center w-full md:w-auto">
                 <?php if ($currentDirectory): ?>
                     <input type="hidden" name="directory" value="<?= urlencode($currentDirectory) ?>" />
                 <?php endif; ?>
                 <select name="sort" onchange="this.form.submit()"
-                    class="px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300">
+                    class="w-full md:w-auto px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300">
                     <option value="a-z" <?= $sortType === 'a-z' ? 'selected' : '' ?>>A-Z</option>
                     <option value="z-a" <?= $sortType === 'z-a' ? 'selected' : '' ?>>Z-A</option>
                     <option value="created-first" <?= $sortType === 'created-first' ? 'selected' : '' ?>>Created First</option>
                     <option value="created-recently" <?= $sortType === 'created-recently' ? 'selected' : '' ?>>Created Recently</option>
                 </select>
             </form>
-            <form action="add_directory.php" method="POST" class="flex items-center gap-2">
+            <!-- Create Directory Form -->
+            <form action="add_directory.php" method="POST" class="flex flex-col md:flex-row items-center gap-2 w-full md:w-auto">
                 <input type="text" name="directoryName" placeholder="New Directory Name"
-                    class="px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required />
-                <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
+                    class="w-full md:w-auto px-4 py-2 border border-gray-300 rounded-md focus:ring focus:ring-blue-300" required />
+                <button type="submit"
+                    class="w-full md:w-auto px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">
                     Create Directory
                 </button>
             </form>

@@ -9,8 +9,8 @@ function getDirectories($baseDir = __DIR__)
     });
 }
 
-$directories = getDirectories();
-$directoryNames = array_map('basename', $directories);
+$directories = getDirectories();    // stores all dir paths
+$directoryNames = array_map('basename', $directories);  // stores all dir names extracting from dir paths
 
 // Get the selected directory from the query parameter
 $selectedDirectory = isset($_GET['directory']) ? $_GET['directory'] : null;

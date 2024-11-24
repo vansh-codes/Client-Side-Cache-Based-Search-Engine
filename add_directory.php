@@ -6,5 +6,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['directoryName'])) {
         mkdir($path);
         header('Location: notes.php');
         exit;
+    } else {
+        echo "<script>
+        alert('Directory already exists.');
+        setTimeout(function() {
+            window.location.href = 'notes.php';
+        }, 200);
+        </script>";
+        exit;
     }
 }
