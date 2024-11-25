@@ -75,23 +75,13 @@ function displayResults(results, container, query) {
 // Function to highlight the search query within the snippet
 function highlightQuery(snippet, query) {
     // Create a regex pattern for the query, making it case-insensitive
-    const pattern = new RegExp(`(${query})`, "gi");
+    const pattern = new RegExp(`(${query})`, "gi"); // global, case-insensitive search
     return snippet.replace(pattern, '<span class="bg-yellow-200">$1</span>'); // Highlight with background color
 }
 
 // Function to get cached data from sessionStorage
 function getCache(query) {
     const cache = JSON.parse(sessionStorage.getItem("searchCache")) || {};
-
-    // Check if the query is a substring of any previous search in the cache
-/*     let matchedResults = [];
-
-    for (let key in cache) {
-        if (key.includes(query)) {
-            matchedResults = matchedResults.concat(cache[key]);
-        }
-    } */
-
     return cache[query];
 }
 

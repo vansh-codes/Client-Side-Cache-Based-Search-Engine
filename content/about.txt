@@ -1,3 +1,2 @@
 About Our Project
-This project demonstrates a search feature with caching.
-Keywords: search, caching, PHP
+This project demonstrates a search feature with caching along with storing and managing notes
